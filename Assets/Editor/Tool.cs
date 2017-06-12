@@ -25,7 +25,6 @@ class Tool
 
 	public static void DecryptUnityPackage(string inputFile, string key)
 	{
-		// string inputFile = Application.dataPath + "/AssetStore/434fe5c2-6f1b-42cd-b690-b55699522122";
         System.Reflection.Assembly unityEditor = typeof(Editor).Assembly;  
   
         System.Type assetStoreUtils = unityEditor.GetType("UnityEditor.AssetStoreUtils");  

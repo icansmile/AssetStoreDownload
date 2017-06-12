@@ -6,15 +6,15 @@ public class MyWindow: EditorWindow
     string url;
     string key;
     
-    string path;  
+    string jsonPath;  
     string packagePath;
+
     Rect rect;  
 
     [MenuItem("Tool/ShowWindow")]
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(MyWindow));
-        Debug.Log("show");
     }
 
     /// <summary>
@@ -24,12 +24,12 @@ public class MyWindow: EditorWindow
     void OnGUI()
     {
         EditorGUI.LabelField(new Rect(0, 0, 100, 20), "json path");
-        path = filePathReceiver(new Rect(100, 0, 500, 20), path);
+        jsonPath = filePathReceiver(new Rect(100, 0, 500, 20), jsonPath);
 
         if(GUI.Button(new Rect(0, 30, 100, 50), "Get"))
         {
-            url = Tool.GetUrl(path); 
-            key = Tool.GetKey(path); 
+            url = Tool.GetUrl(jsonPath); 
+            key = Tool.GetKey(jsonPath); 
         }
 
         EditorGUI.LabelField(new Rect(0, 90, 100, 20), "url");
@@ -49,8 +49,6 @@ public class MyWindow: EditorWindow
 
     string filePathReceiver(Rect rect, string content)
     {
-        // //获得一个长width的框  
-        // rect = EditorGUILayout.GetControlRect(GUILayout.Width(labelWidth));  
         // //将上面的框作为文本输入框  
         content = EditorGUI.TextField(rect, content);  
 
